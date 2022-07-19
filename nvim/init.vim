@@ -10,7 +10,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 
 " git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " editor view 
 Plug 'lambdalisue/fern.vim' "file explorer
@@ -190,14 +190,16 @@ let g:fern#default_hidden=1
 
 """"""""""""""""""""""""""""""
 " Git
+" https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
 """"""""""""""""""""""""""""""
 nmap <leader>g [git]
 nnoremap [git] <Nop>
-nnoremap [git]s :CocCommand fzf-preview.GitStatus<CR>
-nnoremap [git]a :CocCommand fzf-preview.GitActions<CR>
-nnoremap [git]l :CocCommand fzf-preview.GitLogs<CR>
-nnoremap [git]r :CocCommand fzf-preview.GitBranches<CR>
-nnoremap [git]b :G blame<CR>
+nnoremap [git]l :G blame<CR>
+nnoremap [git]b :G branch<CR>
+nnoremap [git]s :G difftool<CR>
+nnoremap [git]d :Gdiffsplit<CR>
+nnoremap [git]h :G log<CR>
+nnoremap [git]m :G mergetool<CR>
 
 """"""""""""""""""""""""""""""
 " Translate
@@ -285,7 +287,7 @@ let g:lightline = {
   \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'coc' ]],
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
+  \   'gitbranch': 'FugitiveHead',
   \   'filename': 'LightlineFilename',
   \ },
   \ }
