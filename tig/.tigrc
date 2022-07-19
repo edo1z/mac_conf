@@ -1,0 +1,42 @@
+#--------------------------------------------------------------#
+##        tig settings                                        ##
+#--------------------------------------------------------------#
+set main-view  = id:yes date:default,local=yes author commit-title:graph=yes,refs=yes,overflow=false
+set blame-view = date:default id:yes,color line-number:yes,interval=1 text
+set pager-view = text
+set stage-view = text
+set log-view   = text
+set blob-view  = text
+set diff-view  = text:yes,commit-title-overflow=no
+set tab-size = 2
+set ignore-case = true
+set split-view-width = 80%
+set split-view-height = 80%
+set diff-options = -m --first-parent
+set refresh-mode = auto
+
+#--------------------------------------------------------------#
+##        key bind                                            ##
+#--------------------------------------------------------------#
+# Pで現在のブランチへpush
+bind generic P ?@!git push origin %(repo:head)
+
+# そのほかのGitコマンド
+bind generic F ?@!git fetch %(remote)
+bind generic U ?@!git pull %(remote)
+
+color cursor black white bold
+
+# status画面
+## 特定ファイルだけ元に戻す
+bind status B ?@git checkout %(file)
+
+## 全てをadd
+bind status A @git add -A
+
+## 全てのaddの取り消し
+bind status R @git reset HEAD
+
+## Dでstatus viewのuntracked fileを削除できるようにする
+bind status D ?@rm %(file)
+
