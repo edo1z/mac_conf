@@ -33,6 +33,7 @@ alias pj="cd ~/pj"
 
 # PATH
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # startship
 eval "$(starship init zsh)"
