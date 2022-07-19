@@ -70,6 +70,11 @@ set smartindent
 set ttyfast
 set noswapfile
 set laststatus=2
+set encoding=utf-8
+set hidden
+set nobackup
+set nowritebackup
+set shortmess+=c
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu
 " 入力中のコマンドを表示する
@@ -91,6 +96,7 @@ autocmd FileType * setlocal formatoptions-=ro
 set clipboard=unnamed
 " grep検索の実行後にQuickFix Listを表示する
 autocmd QuickFixCmdPost *grep* cwindow
+set mouse=a
 
 """""""""""""""""""
 " Color Scheme
@@ -98,9 +104,13 @@ autocmd QuickFixCmdPost *grep* cwindow
 " set t_Co=256
 set background=dark
 set termguicolors
-colorscheme spacecamp
-" colorscheme PaperColor
+set cursorline
+" colorscheme spacecamp
+colorscheme PaperColor
 " colorscheme simpleblack
+
+highlight CursorLine guibg=#002030
+" highlight CursorLine guifg=black
 
 if !has('gui_running')
   augroup opacity
@@ -355,11 +365,6 @@ nnoremap <leader>ff :CocCommand fzf-preview.ProjectFiles<CR>
 nnoremap <leader>r :CocCommand fzf-preview.ProjectGrep<space>
 
 " 以下よく分かっていない
-set encoding=utf-8
-set hidden
-set nobackup
-set nowritebackup
-set shortmess+=c
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   set signcolumn=number
 else
