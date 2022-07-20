@@ -326,12 +326,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <PageUp> coc#float#has_scroll() ? coc#float#scroll(0) : "\<PageUp>"
 endif
 
-" bookmark
-nmap <leader>mm <Plug>(coc-bookmark-toggle)
-nmap <leader>mj <Plug>(coc-bookmark-next)
-nmap <leader>mk <Plug>(coc-bookmark-prev)
-nmap <leader>ma <Plug>(coc-bookmark-annotate)
-
 "code action (fix)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -340,6 +334,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " GoTo code navigation.
+" C-oで戻れる
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
