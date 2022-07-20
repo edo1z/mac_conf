@@ -5,27 +5,34 @@ Plug 'lucasprag/simpleblack'
 Plug 'jaredgorski/spacecamp'
 Plug 'NLKNguyen/papercolor-theme'
 
+" Coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' "変更箇所の行番号にマーク表示
 
-" editor view 
+" editor 
 Plug 'lambdalisue/fern.vim' "file explorer
-Plug 'itchyny/lightline.vim' " statusbar
-
-" quickfix
-Plug 'thinca/vim-qfreplace'
+Plug 'itchyny/lightline.vim' "statusbar
+Plug 'kshenoy/vim-signature' "mark可視化
+Plug 'markonm/traces.vim' "置換のプレビュー
+Plug 'tpope/vim-commentary' "comment
+Plug 'vim-scripts/vim-auto-save'
+Plug 'SirVer/ultisnips' "snipets
 
 " operator
 Plug 'simeji/winresizer' "画面サイズ調整
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-expand-region'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'wellle/targets.vim'
 
-" Coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" quickfix
+Plug 'thinca/vim-qfreplace'
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -42,13 +49,9 @@ Plug 'mattn/vim-maketable'
 " other Plugins
 Plug 'editorconfig/editorconfig-vim' "lint
 Plug 'ConradIrwin/vim-bracketed-paste' "copy時のpaste modeの自動調整
-Plug 'tpope/vim-commentary' "comment
 Plug 'thinca/vim-quickrun' "CODE自動実行
 Plug 'vim-jp/vimdoc-ja' "ヘルプの日本語化
-Plug 'markonm/traces.vim' "置換のプレビュー
 Plug 'skanehira/translate.vim' "Google翻訳
-Plug 'SirVer/ultisnips' " snipets
-Plug 'vim-scripts/vim-auto-save'
 
 " Language
 Plug 'beanworks/vim-phpfmt'
@@ -141,20 +144,11 @@ nnoremap gj j
 nnoremap gk k
 nnoremap <leader>l $
 nnoremap <leader>w :w<CR>
-nnoremap <leader><leader><leader> <C-^>
 nnoremap <Esc><Esc> :nohlsearch<CR>
 inoremap jj <Esc>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
-
-" operator-replace
-nmap ,r <Plug>(operator-replace)
-
-" ToggleQuickfix
-nnoremap <script> <silent> <leader>q :call ToggleQuickfix()<CR>
-" ToggleRelativenumber
-nnoremap <silent> <leader>n :call ToggleRelativenumber()<cr>
 
 " 画面分割・タブページの設定
 nnoremap s <Nop>
@@ -188,6 +182,13 @@ nnoremap sN :<C-u>bn<CR>
 nnoremap sP :<C-u>bp<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
+
+" operator-replace
+nmap <leader>r <Plug>(operator-replace)
+
+" ToggleQuickfix
+nnoremap <script> <silent> <leader>q :call ToggleQuickfix()<CR>
+nnoremap <silent> <leader>n :call ToggleRelativenumber()<cr>
 
 """"""""""""""""""""""""""""""
 " autosave
@@ -224,7 +225,6 @@ let g:translate_popup_window = 1
 """"""""""""""""""""""""""""""
 nmap <leader>go [go]
 nnoremap [go] <Nop>
-nmap     <leader>go [go]
 nnoremap [go]r :GoRun
 nnoremap [go]e :GoErrCheck<CR>
 nnoremap [go]d :GoDef<CR>
