@@ -37,3 +37,5 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # startship
 eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

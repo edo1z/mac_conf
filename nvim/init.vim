@@ -5,12 +5,8 @@ Plug 'lucasprag/simpleblack'
 Plug 'jaredgorski/spacecamp'
 Plug 'NLKNguyen/papercolor-theme'
 
-" fzf Plugins
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-
 " git
 Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
 
 " editor view 
 Plug 'lambdalisue/fern.vim' "file explorer
@@ -20,12 +16,20 @@ Plug 'itchyny/lightline.vim' " statusbar
 Plug 'thinca/vim-qfreplace'
 
 " operator
+Plug 'simeji/winresizer' "画面サイズ調整
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-expand-region'
+
+" Coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 " html tag
 Plug 'docunext/closetag.vim' "HTML tag
@@ -36,9 +40,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mattn/vim-maketable'
 
 " other Plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "LSP
 Plug 'editorconfig/editorconfig-vim' "lint
-Plug 'simeji/winresizer' "画面サイズ調整
 Plug 'ConradIrwin/vim-bracketed-paste' "copy時のpaste modeの自動調整
 Plug 'tpope/vim-commentary' "comment
 Plug 'thinca/vim-quickrun' "CODE自動実行
@@ -206,10 +208,7 @@ let g:fern#default_hidden=1
 nmap <leader>g [git]
 nnoremap [git] <Nop>
 nnoremap [git]l :G blame<CR>
-nnoremap [git]b :G branch<CR>
-nnoremap [git]s :G difftool<CR>
 nnoremap [git]d :Gdiffsplit<CR>
-nnoremap [git]h :G log<CR>
 nnoremap [git]m :G mergetool<CR>
 
 """"""""""""""""""""""""""""""
@@ -317,22 +316,6 @@ set noshowmode
 """"""""""""""""""""""""""""""
 " coc-nvimの設定
 """"""""""""""""""""""""""""""
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Mappings for CoCList
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>b  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 " ポップアップウインドウのスクロール
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? coc#float#scroll(1) : "\<PageDown>"
@@ -356,14 +339,36 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-" fzf
-nnoremap <leader>fb :CocCommand fzf-preview.Buffers<CR>
-nnoremap <leader>fg :CocCommand fzf-preview.GitFiles<CR>
-nnoremap <leader>fh :CocCommand fzf-preview.MruFiles<CR>
-nnoremap <leader>ff :CocCommand fzf-preview.ProjectFiles<CR>
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" rg(grep)の設定
-nnoremap <leader>r :CocCommand fzf-preview.ProjectGrep<space>
+" Mappings for CoCList
+nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" fzf
+nnoremap <space>c  :CocCommand fzf-preview.CommandPalette<CR> 
+nnoremap <space>cl :CocList<cr>
+nnoremap <space>o  :CocCommand fzf-preview.CocOutline<cr>
+nnoremap <space>d  :CocCommand fzf-preview.CocDiagnostics<cr>
+nnoremap <leader>fp :CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <leader>fb :CocCommand fzf-preview.Buffers<CR>
+nnoremap <leader>fu :CocCommand fzf-preview.MruFiles<CR> 
+nnoremap <leader>fw :CocCommand fzf-preview.MrwFiles<CR> 
+nnoremap <leader>fq :CocCommand fzf-preview.QuickFix<CR> 
+nnoremap <leader>fl :CocCommand fzf-preview.LocationList<CR> 
+nnoremap <leader>fr :CocCommand fzf-preview.ProjectGrep<space>
+" fzf (git)
+nnoremap [git]a :CocCommand fzf-preview.GitActions<CR>
+nnoremap [git]f :CocCommand fzf-preview.GitFiles<CR>
+nnoremap [git]h :CocCommand fzf-preview.GitLogs<CR>
+nnoremap [git]s :CocCommand fzf-preview.GitStatus<CR>
+nnoremap [git]b :CocCommand fzf-preview.GitBranches<CR>
 
 " 以下よく分かっていない
 if has("nvim-0.5.0") || has("patch-8.1.1564")
