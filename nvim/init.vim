@@ -149,6 +149,9 @@ inoremap jj <Esc>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
+nnoremap r <Plug>(operator-replace)
+nnoremap <leader>r r
+noremap <leader>s <Plug>(easymotion-overwin-f)
 
 " 画面分割・タブページの設定
 nnoremap s <Nop>
@@ -182,9 +185,6 @@ nnoremap sN :<C-u>bn<CR>
 nnoremap sP :<C-u>bp<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
-
-" operator-replace
-nmap <leader>r <Plug>(operator-replace)
 
 " ToggleQuickfix
 nnoremap <script> <silent> <leader>q :call ToggleQuickfix()<CR>
@@ -341,7 +341,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Mappings for CoCList
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <leader><leader>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
