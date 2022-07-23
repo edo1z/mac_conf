@@ -22,6 +22,7 @@ alias o="open"
 alias g='git'
 alias v='nvim'
 alias t='tmux'
+alias tiga='tig --all'
 alias l='exa -al'
 alias la='exa -a'
 alias ll='exa -l'
