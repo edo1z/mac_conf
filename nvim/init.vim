@@ -118,8 +118,7 @@ set cursorline
 colorscheme PaperColor
 " colorscheme simpleblack
 
-highlight CursorLine guibg=#002030
-" highlight CursorLine guifg=black
+highlight CursorLine guibg=#103259
 
 if !has('gui_running')
   augroup opacity
