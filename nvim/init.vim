@@ -204,7 +204,6 @@ let g:fern#default_hidden=1
 
 """"""""""""""""""""""""""""""
 " Git
-" https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
 """"""""""""""""""""""""""""""
 nmap <leader>g [git]
 nnoremap [git] <Nop>

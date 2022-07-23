@@ -11,17 +11,14 @@
 	bd = branch -d
 	a = add
 	aa = add -A
-	som = push origin master
 	lom = pull origin master
-	so = push origin
-	sod = push origin develop
 	lo = pull origin
 	lod = pull origin develop
 	lg = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cam = commit -am
 	ame = commit --amend -m
 	reb = rebase -i
-	d = diff --word-diff
+	d = diff
 	m = merge
 	s = status --short --branch
 	st = status --short --branch
@@ -34,6 +31,23 @@
 	checkStat = minimal
   editor = nvim
   pager = delta
+[grep]
+	lineNumber = true
+[interctive]
+  diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
 [credential]
 	helper = cache --timeout=31536000\n
 
@@ -54,7 +68,8 @@
     hunk-header-decoration-style = yellow box
 
 [delta]
-    features = side-by-side line-numbers decorations
+    ; features = side-by-side line-numbers decorations
+    features = line-numbers decorations
     syntax-theme = Dracula
     plus-style = syntax "#003800"
     minus-style = syntax "#3f0001"

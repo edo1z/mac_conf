@@ -38,4 +38,15 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # startship
 eval "$(starship init zsh)"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# mcfly
+eval "$(mcfly init zsh)"
+if [[ "$(defaults read -g AppleInterfaceStyle 2&>/dev/null)" != "Dark" ]]; then
+    export MCFLY_LIGHT=TRUE
+fi
+export MCFLY_RESULTS=50
