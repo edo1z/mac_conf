@@ -5,6 +5,9 @@ Plug 'lucasprag/simpleblack'
 Plug 'jaredgorski/spacecamp'
 Plug 'NLKNguyen/papercolor-theme'
 
+" navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -52,6 +55,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' "copy時のpaste modeの自動調整
 Plug 'thinca/vim-quickrun' "CODE自動実行
 Plug 'vim-jp/vimdoc-ja' "ヘルプの日本語化
 Plug 'skanehira/translate.vim' "Google翻訳
+Plug 'antoinemadec/FixCursorHold.nvim' " CursorHoldのパフォーマンスを修正
 
 " Language
 Plug 'beanworks/vim-phpfmt'
