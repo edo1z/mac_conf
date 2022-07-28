@@ -1,0 +1,17 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "explorer.icon.enableNerdfont": false,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.file.column.indent.indentLine": false,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "rust.clippy_preference": "on",
+  "rust-analyzer.updates.channel": "nightly",
+  "coc.preferences.jumpCommand": "tabe"
+}
