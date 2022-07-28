@@ -10,7 +10,7 @@
   "explorer.icon.enableNerdfont": false,
   "explorer.file.showHiddenFiles": true,
   "explorer.file.column.indent.indentLine": false,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["rust", "c"],
   "rust.clippy_preference": "on",
   "rust-analyzer.updates.channel": "nightly",
   "coc.preferences.jumpCommand": "tabe"
