@@ -52,3 +52,6 @@ if [[ "$(defaults read -g AppleInterfaceStyle 2&>/dev/null)" != "Dark" ]]; then
     export MCFLY_LIGHT=TRUE
 fi
 export MCFLY_RESULTS=50
+
+# cpputest
+export CPPUTEST_HOME="$(brew --prefix cpputest)"

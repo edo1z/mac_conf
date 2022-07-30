@@ -16,7 +16,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter' "変更箇所の行番号にマーク表示
 
 " editor 
-Plug 'lambdalisue/fern.vim' "file explorer
 Plug 'itchyny/lightline.vim' "statusbar
 Plug 'kshenoy/vim-signature' "mark可視化
 Plug 'markonm/traces.vim' "置換のプレビュー
@@ -199,13 +198,6 @@ nnoremap <silent> <leader>n :call ToggleRelativenumber()<cr>
 let g:auto_save = 0  " enable AutoSave on Vim startup
 
 """"""""""""""""""""""""""""""
-" explorer (Fern) 
-""""""""""""""""""""""""""""""
-" nnoremap <leader>b :Fern . -drawer<CR>
-nnoremap <leader>e :Fern . -drawer -toggle<CR>
-let g:fern#default_hidden=1
-
-""""""""""""""""""""""""""""""
 " Git
 """"""""""""""""""""""""""""""
 nmap <leader>g [git]
@@ -341,6 +333,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" coc-explorer
+nnoremap <leader>e :CocCommand explorer<CR>
 
 " Mappings for CoCList
 nnoremap <silent><nowait> <leader><leader>s  :<C-u>CocList -I symbols<cr>
