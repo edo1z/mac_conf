@@ -32,6 +32,7 @@ alias dcu='docker-compose up'
 alias dcud='docker-compose up -d'
 alias dcd='docker-compose down'
 alias pj="cd ~/pj"
+alias cm="compiledb make"
 
 # PATH
 export PATH="/opt/homebrew/bin:$PATH"

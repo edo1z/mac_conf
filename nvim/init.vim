@@ -24,7 +24,7 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'SirVer/ultisnips' "snipets
 
 " operator
-Plug 'simeji/winresizer' "画面サイズ調整
+Plug 'simeji/winresizer' "画面サイズ調整 (ctrl + e)
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -39,6 +39,10 @@ Plug 'thinca/vim-qfreplace'
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+
+" debug
+" Plug 'mfussenegger/nvim-dap'
+Plug 'puremourning/vimspector'
 
 " html tag
 Plug 'docunext/closetag.vim' "HTML tag
@@ -207,6 +211,14 @@ nnoremap [git]d :Gdiffsplit<CR>
 nnoremap [git]m :G mergetool<CR>
 
 """"""""""""""""""""""""""""""
+" Debug (Vimspector)
+""""""""""""""""""""""""""""""
+let g:vimspector_base_dir='/Users/dev/.local/share/nvim/plugged/vimspector'
+let g:vimspector_install_gadgets = [ 'CodeLLDB' ]
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <Leader>db <Plug>VimspectorBreakpoints
+
+""""""""""""""""""""""""""""""
 " Translate
 """"""""""""""""""""""""""""""
 let g:translate_source = "en"
@@ -344,17 +356,12 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " fzf
-nnoremap <space>c  :CocCommand fzf-preview.CommandPalette<CR> 
-nnoremap <space>cl :CocList<cr>
 nnoremap <space>o  :CocCommand fzf-preview.CocOutline<cr>
-nnoremap <space>d  :CocCommand fzf-preview.CocDiagnostics<cr>
+nnoremap <space>co :CocCommand fzf-preview.CommandPalette<CR> 
+nnoremap <space>cl :CocList<cr>
+nnoremap <leader>fg :CocCommand fzf-preview.ProjectGrep<space>
 nnoremap <leader>fp :CocCommand fzf-preview.ProjectFiles<CR>
 nnoremap <leader>fb :CocCommand fzf-preview.Buffers<CR>
-nnoremap <leader>fu :CocCommand fzf-preview.MruFiles<CR> 
-nnoremap <leader>fw :CocCommand fzf-preview.MrwFiles<CR> 
-nnoremap <leader>fq :CocCommand fzf-preview.QuickFix<CR> 
-nnoremap <leader>fl :CocCommand fzf-preview.LocationList<CR> 
-nnoremap <leader>fr :CocCommand fzf-preview.ProjectGrep<space>
 " fzf (git)
 nnoremap [git]a :CocCommand fzf-preview.GitActions<CR>
 nnoremap [git]f :CocCommand fzf-preview.GitFiles<CR>
