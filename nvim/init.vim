@@ -215,8 +215,20 @@ nnoremap [git]m :G mergetool<CR>
 """"""""""""""""""""""""""""""
 let g:vimspector_base_dir='/Users/dev/.local/share/nvim/plugged/vimspector'
 let g:vimspector_install_gadgets = [ 'CodeLLDB' ]
-let g:vimspector_enable_mappings = 'HUMAN'
-nmap <Leader>db <Plug>VimspectorBreakpoints
+nmap <leader>d [debug]
+nmap [debug]t <Plug>VimspectorToggleBreakpoint
+nmap [debug]b <Plug>VimspectorBreakpoints
+nmap [debug]s <Plug>VimspectorContinue
+nmap [debug]e <Plug>VimspectorStop
+nmap [debug]r <Plug>VimspectorRestart
+nmap [debug]v <Plug>VimspectorStepOver
+nmap [debug]i <Plug>VimspectorStepInto
+nmap [debug]u <Plug>VimspectorStepOut
+nmap [debug]k <Plug>VimspectorUpFrame
+nmap [debug]j <Plug>VimspectorDownFrame
+nmap [debug]w <Plug>VimspectorBalloonEval
+xmap [debug]w <Plug>VimspectorBalloonEval
+nmap [debug]x <Plug>VimspectorReset
 
 """"""""""""""""""""""""""""""
 " Translate
